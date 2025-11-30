@@ -437,17 +437,17 @@ export default function Home() {
   };
 
   const handlePackClick = (pack: CoinPack | { type: "custom" }) => {
-    if ("type" in pack && pack.type === "custom") {
-      setIsCustomModalVisible(true);
-      setSelectedPack(null);
-      setIsOrderSummaryVisible(false);
-    } else {
-      setSelectedPack(pack);
-      setIsCustomModalVisible(false);
-      setIsOrderSummaryVisible(false);
-      setIsFromCustom(false);
-    }
-  };
+  if ("type" in pack && pack.type === "custom") {
+    setIsCustomModalVisible(true);
+    setSelectedPack(null);
+    setIsOrderSummaryVisible(false);
+  } else {
+    setSelectedPack(pack as CoinPack);
+    setIsCustomModalVisible(false);
+    setIsOrderSummaryVisible(false);
+    setIsFromCustom(false);
+  }
+};
 
   const handleBackFromOrder = () => {
     setIsOrderSummaryVisible(false);
